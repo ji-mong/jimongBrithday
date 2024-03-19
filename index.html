@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지원쓰 생일파티 초대장</title>
+    <link rel="stylesheet" href="/_css/font.css">
+    <link rel="stylesheet" href="/_icon/style.css">
+    <link rel="stylesheet" href="/_css/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <h1>LOGO</h1>
+                </div>
+
+                <a href="#n" class="icon-menu"></a>
+
+                <div class="subMenu">
+                    <a href="#n" class="icon-cross"></a>
+
+                    <p>아무것도 엄성</p>
+                </div>
+            </header>
+
+            <script>
+                const menuBtn = document.querySelector('.icon-menu');
+                const subMenu = document.querySelector('.subMenu');
+                const closeBtn = document.querySelector('.icon-cross');
+
+                menuBtn.addEventListener('click', function () {
+                    subMenu.classList.add('on');
+                })
+
+                closeBtn.addEventListener('click', function () {
+                    subMenu.classList.remove('on')
+                })
+            </script>
+
+            <div class="cardBox">
+                <h4>🎉 지원쓰의 생일파티에 초대합니다 🎉</h4>
+
+                <div class="imgBox">
+                    <div class="img">
+                        <img src="./_images/KakaoTalk_20240318_144357542.jpg" alt="">
+                    </div>
+                </div>
+                <div class="listWrap">
+                    <ul class="list">
+                        <li><span>날짜</span> 3월 23일</li>
+                        <li><span>장소</span> 남포동 시샤</li>
+                        <li><span>시간</span> 오후 8:00</li>
+                        <li><span>준비물</span> 튼튼한 간</li>
+                    </ul>
+                    <p class="msg">배달음식이나 먹고싶은 안주 있으면 말해줘 ! 🍕🍔🍗</p>
+                </div>
+            </div>
+
+            <script>
+
+
+                const word = document.querySelector('.cardBox h4');
+
+                const displayLetters = (arr) => {
+                    for (let i = 0; i < arr.length; i++) {
+                        addClassname(arr, i);
+                    }
+                }
+
+                const addClassname = (arr, i) => {
+                    setTimeout(() => {
+                        arr[i].classList.add('on');
+                    }, 350 + (i * 100))
+                }
+
+                const splitLetters = (word) => {
+                    const letters = [];
+                    const content = word.innerHTML;
+                    word.innerHTML = '';
+
+                    for (let i = 0; i < content.length; i++) {
+                        let letter = document.createElement('span');
+                        letter.innerHTML = content.charAt(i);
+                        word.appendChild(letter);
+                        letters.push(letter);
+                    }
+
+                    displayLetters(letters);
+                }
+
+                splitLetters(word);
+            </script>
+
+            <div class="map">
+                <p>👇 시샤 위치 ! 👇</p>
+                <!-- * 카카오맵 - 지도퍼가기 -->
+                <!-- 1. 지도 노드 -->
+                <div id="daumRoughmapContainer1710745729869" class="root_daum_roughmap root_daum_roughmap_landing"
+                    style="width: 100%;">
+                </div>
+
+                <!--
+                            	2. 설치 스크립트
+                            	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+                            -->
+                <script charset="UTF-8" class="daum_roughmap_loader_script"
+                    src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+                <!-- 3. 실행 스크립트 -->
+                <script charset="UTF-8">
+                    new daum.roughmap.Lander({
+                        "timestamp": "1710745729869",
+                        "key": "2ik6a",
+                        "mapHeight": "260"
+                    }).render();
+                </script>
+            </div>
+
+            <footer>토요일에봐 ~~</footer>
+        </div>
+
+    </div>
+</body>
+
+</html>
