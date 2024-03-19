@@ -1,0 +1,70 @@
+@charset "utf-8";
+* {margin: 0; padding: 0;}
+ul {list-style: none;}
+a {text-decoration: none; color: #000;}
+
+.wrap {position: relative; overflow: hidden;} 
+.wrap .container {width: 100%; background-color: rgb(255, 241, 243); display: flex; justify-content: center; flex-wrap: wrap;}
+header {width: 100%; height: 50px; border-bottom: 1px solid #f5f5f5; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; box-sizing: border-box; background-color: #ffffff;}
+header .logo h1 {font-size: 16px; font-family: 'GmarketSans'; font-weight: 700; color: #ff7675; padding-top: 5px;}
+header .icon-menu, header .subMenu .icon-cross {font-size: 18px; font-weight: 400; color: #ff7675;}
+
+.subMenu {background-color: #fff; position: absolute; top: 0; right: -400px; z-index: 99; width: 100%; height: 100%; padding: 15px 10px; box-sizing: border-box; visibility: hidden; transition: all 0.5s ease-in-out;}
+.subMenu.on {right: 0; visibility: visible;}
+.subMenu .icon-cross {position: absolute; top: 15px; right: 15px;}
+.subMenu p {font-family: 'GmarketSans'; font-weight: 700; font-size: 30px; padding-top: 70%; text-align: center;}
+
+.cardBox {width: 100%; padding: 50px 0; text-align: center;}
+.cardBox h4 {font-size: 22px; font-family: 'GmarketSans'; font-weight: 700; color: #d3431f; margin-bottom: 30px; letter-spacing: -0.02em;}
+.cardBox h4 span {opacity: 0;}
+.cardBox h4 span.on {opacity: 1;}
+.cardBox .imgBox {position: relative; margin-bottom: 30px;}
+.cardBox .imgBox .img {margin: 0 auto; width: 180px; height: 180px; position: relative; display: flex; align-items: center; justify-content: center; opacity: 0;  animation: imgScale 2s 1s; animation-fill-mode: forwards;}
+.cardBox .imgBox .img::before {content: ''; position: absolute; top: 0; left: 0; background: url(/_images/imgText.png); width: 180px; height: 180px; background-size: 100%; z-index: 1; animation: imgText 80s infinite;} 
+
+@keyframes imgScale {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes imgText {
+    to {
+        transform: rotate(0);
+    }
+
+    from {
+        transform: rotate(360deg);
+    }
+}
+
+
+.cardBox .imgBox .img img {width: 150px; height: 150px; border-radius: 50%;}
+.cardBox .listWrap {display: flex; flex-wrap: wrap; align-items: center; justify-content: center;}
+.cardBox .list {width: max-content; font-family: 'GmarketSans'; font-weight: 400; text-align: left;}
+.cardBox .list li {margin-bottom: 5px; align-items: center; display: flex;}
+.cardBox .list li span {width: 60px; padding-top: 5px; margin-right: 20px; position: relative;}
+.cardBox .list li span::before {content: ''; width: 1px; height: 13px; position: absolute; top: 7px; right: -4px; background-color: #00000027;}
+.cardBox p.msg {font-family: 'GmarketSans'; font-size: 14px; margin-top: 10px; color: #e02d00; font-weight: 400;}
+
+.map {overflow: hidden; width: 100%;}
+.map p {font-family: 'GmarketSans'; font-size: 18px; font-family: 'GmarketSans'; font-weight: 700; color: #d3431f; text-align: center; margin-bottom: 15px; animation: location 1s infinite;}
+
+@keyframes location {
+    to {
+        transform: translateY(0);
+    }
+
+    from {
+        transform: translateY(5px);
+    }
+}
+
+.mapWrap {width: 100%; height: 200px; overflow: hidden;}
+
+footer {background-color: #532525; width: 100%; font-family: 'GmarketSans'; font-weight: 400; font-size: 18px; text-align: center; color: #fff; padding: 15px 0;}
